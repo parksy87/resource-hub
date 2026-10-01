@@ -346,6 +346,7 @@ export default function AdminLoginPage() {
             <p>
               아이디 <strong>{PORTFOLIO_ADMIN_DISPLAY_ID}</strong>와 관리자 비밀번호를 입력하세요.
             </p>
+            <p>테스트계정 admin@test.co.kr / 123456</p>
 
 
 
