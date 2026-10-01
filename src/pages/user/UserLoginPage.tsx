@@ -40,6 +40,7 @@ export default function UserLoginPage() {
   }
 
   return (
+    <main className="user-login-screen">
     <section className="user-placeholder user-login">
       <p>ACCOUNT</p>
       <h2>로그인</h2>
@@ -76,6 +77,7 @@ export default function UserLoginPage() {
       <Link className="ui-button ui-button--outline ui-button--md" to={ROUTES.user.home}>
         홈으로
       </Link>
-    </section>
+      </section>
+    </main>
   )
 }

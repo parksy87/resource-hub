@@ -67,6 +67,17 @@
   .user-footer__inner { align-items: flex-start; flex-direction: column; }
 }
 
+.user-login-screen {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  background: var(--surface-page);
+  color: var(--text-primary);
+}
+.user-login-screen .user-login {
+  width: min(100%, 420px);
+}
 .user-login__form {
   display: grid;
   gap: 16px;

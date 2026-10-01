@@ -91,8 +91,8 @@ export function AppRouter() {
           <Route path="settings" element={<Suspense fallback={<div className="settings-screen"><Loading size="lg" label="시스템 설정을 불러오는 중입니다" /></div>}><SettingsPage /></Suspense>} />
           </Route>
         </Route>
+        <Route path="login" element={<UserLoginPage />} />
         <Route element={<Suspense fallback={<Loading size="lg" label="화면을 불러오는 중입니다" />}><UserLayout /></Suspense>}>
-          <Route path="login" element={<UserLoginPage />} />
           <Route index element={<Home />} />
           <Route path="resources" element={<Resources />} />
           <Route path="resources/:id" element={<ResourceDetail />} />
