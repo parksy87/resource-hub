@@ -1,0 +1,42 @@
+rules_version = '2';
+
+// Firebase Console > Firestore > Rules 에 기존 users 규칙이 있다면
+// 아래 resources 블록과 helper 함수만 병합해 적용하세요.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn()
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'ADMIN';
+    }
+
+    match /users/{userId} {
+      allow read: if isSignedIn() && request.auth.uid == userId;
+    }
+
+    match /resources/{resourceId} {
+      allow read: if true;
+      allow create, update, delete: if isSignedIn();
+    }
+
+    // 사용자는 Firebase Auth 없이 더미 userId로 예약 — 포트폴리오 최소 Rules
+    match /reservations/{reservationId} {
+      allow read: if true;
+      allow create: if request.resource.data.status in ['PENDING', 'pending'];
+      allow update: if isSignedIn()
+        || resource.data.userId == request.resource.data.userId;
+      allow delete: if false;
+    }
+
+    match /rentals/{rentalId} {
+      allow read: if true;
+      allow create: if isSignedIn();
+      allow update: if isSignedIn()
+        || resource.data.userId == request.resource.data.userId;
+      allow delete: if false;
+    }
+  }
+}

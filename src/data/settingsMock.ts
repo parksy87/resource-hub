@@ -1,0 +1,53 @@
+import type { SettingsBundle } from '../types'
+
+export const settingsMock: SettingsBundle = {
+  basic: {
+    systemName: 'Resource Hub',
+    adminEmail: 'admin.kim@resource.co.kr',
+    phone: '010-1000-2001',
+    organizationName: '리소스허브 운영팀',
+    description: '회사 공용 자원의 예약, 대여, 반납과 점검을 관리합니다.',
+    pageSize: 10,
+  },
+  reservation: {
+    enabled: true,
+    approvalMode: 'MANUAL',
+    window: '30D',
+    maxCount: 3,
+    cancelEnabled: true,
+    cancelBeforeHours: 2,
+    allowOverlap: false,
+  },
+  rental: {
+    enabled: true,
+    defaultDays: 7,
+    maxExtensions: 1,
+    overdueEnabled: true,
+    overdueNoticeHours: 1,
+    returnApprovalRequired: true,
+    autoInspectionAfterReturn: true,
+  },
+  notification: {
+    reservationRequested: true,
+    reservationApproved: true,
+    reservationRejected: true,
+    reservationCancelled: true,
+    rentalStarted: true,
+    returnDue: true,
+    overdue: true,
+    inspectionCompleted: true,
+    emailEnabled: true,
+    smsEnabled: false,
+    systemEnabled: true,
+  },
+  operation: {
+    operating: true,
+    maintenanceMode: false,
+    maintenanceMessage: '현재 시스템 점검이 진행 중입니다. 잠시 후 다시 이용해 주세요.',
+    signupAllowed: true,
+    userReservationAllowed: true,
+    userRentalAllowed: true,
+    adminOnlyResourceCreate: true,
+    maskPersonalInfo: false,
+  },
+}
