@@ -7,7 +7,7 @@ import type {
 /** 예약 CRUD 원본은 Firestore(`reservationService`). 대여 mock 등 레거시 참조용. */
 
 export const reservationUsers: ReservationUserSnapshot[] = [
-  { id: 101, name: '홍길동', email: 'gildong.hong@resource.co.kr', phone: '010-4821-7310', organization: '브랜드전략팀' },
+  { id: 101, name: '김도현', email: 'dohyun.kim@resource.co.kr', phone: '010-4821-7310', organization: '브랜드전략팀' },
   { id: 102, name: '김민수', email: 'minsu.kim@resource.co.kr', phone: '010-2914-6208', organization: '서비스기획팀' },
   { id: 103, name: '이지은', email: 'jieun.lee@resource.co.kr', phone: '010-8652-1147', organization: '콘텐츠제작팀' },
   { id: 104, name: '박서준', email: 'seojun.park@resource.co.kr', phone: '010-7431-5206', organization: '제품개발팀' },
@@ -28,6 +28,7 @@ interface ReservationSeed {
   created: string
   quantity?: number
   purpose?: string
+  requestNote?: string
   place?: string
   reason?: string
   reviewerId?: number
@@ -45,8 +46,8 @@ function reservation(seed: ReservationSeed): Reservation {
     startAt: `${seed.start}:00+09:00`,
     endAt: `${seed.end}:00+09:00`,
     quantity: seed.quantity ?? 1,
-    purpose: seed.purpose ?? '프로젝트 업무 수행을 위한 공용 자원 이용',
-    requestNote: '이용 전 장비 구성품 확인을 요청드립니다.',
+    purpose: seed.purpose ?? '부서 업무',
+    requestNote: seed.requestNote ?? null,
     usageLocation: seed.place ?? null,
     status: seed.status,
     reviewedBy: seed.reviewerId ?? (processed ? 1 : null),
@@ -62,7 +63,7 @@ function reservation(seed: ReservationSeed): Reservation {
 
 export const reservationsMock: Reservation[] = [
   reservation({ id: 1058, number: 'RSV-260930-024', userId: 102, resourceId: 248, start: '2026-10-12T09:00', end: '2026-10-13T18:00', status: 'PENDING', created: '2026-09-30T18:20:00', quantity: 2, purpose: '고객 인터뷰 정리', place: '본관 3층 회의실' }),
-  reservation({ id: 1052, number: 'RSV-260930-018', userId: 101, resourceId: 248, start: '2026-10-02T09:00', end: '2026-10-04T18:00', status: 'PENDING', created: '2026-09-30T17:42:00', quantity: 2, purpose: '신규 서비스 UX 워크숍 진행' }),
+  reservation({ id: 1052, number: 'RSV-260930-018', userId: 101, resourceId: 248, start: '2026-10-02T09:00', end: '2026-10-04T18:00', status: 'PENDING', created: '2026-09-30T17:42:00', quantity: 2, purpose: '팀 워크숍' }),
   reservation({ id: 1051, number: 'RSV-260930-017', userId: 102, resourceId: 245, start: '2026-10-01T13:00', end: '2026-10-01T17:00', status: 'APPROVED', created: '2026-09-30T16:18:00', purpose: '분기 서비스 기획 회의', place: '별관 2층' }),
   reservation({ id: 1050, number: 'RSV-260930-016', userId: 103, resourceId: 241, start: '2026-10-06T09:00', end: '2026-10-08T18:00', status: 'APPROVED', created: '2026-09-30T14:26:00', purpose: '브랜드 캠페인 영상 촬영' }),
   reservation({ id: 1049, number: 'RSV-260930-015', userId: 104, resourceId: 234, start: '2026-10-03T09:00', end: '2026-10-05T18:00', status: 'REJECTED', created: '2026-09-30T13:05:00', reason: '요청 수량을 확보할 수 없습니다.' }),

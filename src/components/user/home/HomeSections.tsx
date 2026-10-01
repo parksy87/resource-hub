@@ -28,10 +28,10 @@ export function HomeHero() {
   return (
     <section className="home-hero">
       <p>Resource Hub</p>
-      <h2>필요한 자원을 쉽고 빠르게 예약하세요.</h2>
-      <p>회사 공용 자원의 예약, 대여, 반납을 한 화면에서 시작할 수 있습니다.</p>
+      <h2>공용 자원 예약</h2>
+      <p>자원 조회, 예약, 대여·반납 내역을 확인합니다.</p>
       <div className="home-hero__actions">
-        <Link className="ui-button ui-button--primary ui-button--md" to={ROUTES.user.resources}>자원 찾아보기</Link>
+        <Link className="ui-button ui-button--primary ui-button--md" to={ROUTES.user.resources}>자원 찾기</Link>
         <Link className="ui-button ui-button--outline ui-button--md" to={ROUTES.user.reservationHistory}>예약 내역</Link>
       </div>
     </section>
@@ -101,7 +101,7 @@ export function PopularResourceList({ items }: { items: PopularResource[] }) {
     <section className="home-section" aria-labelledby="home-popular-title">
       <h2 id="home-popular-title">인기 자원</h2>
       {items.length === 0 ? (
-        <EmptyState title="추천 자원이 없습니다" description="등록된 인기 자원이 없습니다." />
+        <EmptyState title="추천 자원이 없습니다" />
       ) : (
         <div className="home-cards">
           {items.map((item) => {
@@ -132,7 +132,7 @@ export function AvailableResourceList({ items }: { items: HomeResource[] }) {
     <section className="home-section" aria-labelledby="home-available-title">
       <h2 id="home-available-title">이용 가능한 자원</h2>
       {items.length === 0 ? (
-        <EmptyState title="이용 가능한 자원이 없습니다" description="현재 바로 예약할 수 있는 자원이 없습니다." />
+        <EmptyState title="이용 가능한 자원이 없습니다" />
       ) : (
         <ul className="home-available">
           {items.map((item) => {
@@ -159,7 +159,7 @@ const summaryItems = [
   { key: 'reserving', label: '예약 중', to: ROUTES.user.reservations },
   { key: 'renting', label: '대여 중', to: ROUTES.user.rentals },
   { key: 'dueSoon', label: '반납 예정', to: ROUTES.user.rentals },
-  { key: 'unreadNotifications', label: '미처리 알림', to: ROUTES.user.notifications },
+  { key: 'unreadNotifications', label: '읽지 않은 알림', to: ROUTES.user.notifications },
 ] as const
 
 export function HomeUsage({
@@ -186,7 +186,7 @@ export function HomeUsage({
           </div>
           <h3>최근 이용</h3>
           {activities.length === 0 ? (
-            <EmptyState title="최근 이용 내역이 없습니다" description="예약을 신청하면 이곳에 표시됩니다." />
+            <EmptyState title="최근 이용 내역이 없습니다" />
           ) : (
             <ul className="home-activity">
               {activities.map((item) => (
@@ -213,10 +213,10 @@ export function HomeNoticeList({ items }: { items: HomeNotification[] }) {
     <section className="home-section" aria-labelledby="home-notice-title">
       <div className="home-section__head">
         <h2 id="home-notice-title">공지</h2>
-        <Link to={ROUTES.user.notifications}>전체보기</Link>
+        <Link to={ROUTES.user.notifications}>전체 보기</Link>
       </div>
       {items.length === 0 ? (
-        <EmptyState title="등록된 공지가 없습니다" description="새 공지가 등록되면 이곳에 표시됩니다." />
+        <EmptyState title="등록된 공지가 없습니다" />
       ) : (
         <ul className="home-notices">
           {items.map((item) => (

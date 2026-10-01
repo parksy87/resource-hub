@@ -55,7 +55,7 @@ export const inspectionsMock: Inspection[] = [
   inspection({ id: 506, number: 'INS-260925-006', resourceId: 240, type: 'RETURN', status: 'COMPLETED', scheduledDate: '2026-09-25', inspectedDate: '2026-09-25', inspectorId: 2, result: 'REPAIR', rentalId: 408, createdAt: '2026-09-25T15:30:00', content: '반납 시 파손이 접수된 프로젝터를 점검했습니다.', issueDescription: '전원 케이블 커넥터가 파손되었습니다.', actionDescription: '수리 업체로 인계하고 대체 장비를 안내했습니다.', note: '수리 완료 후 재점검이 필요합니다.' }),
   inspection({ id: 505, number: 'INS-260924-005', resourceId: 235, type: 'PERIODIC', status: 'COMPLETED', scheduledDate: '2026-09-20', inspectedDate: '2026-09-24', inspectorId: 3, result: 'MINOR', createdAt: '2026-09-18T10:00:00', content: '복합기 정기점검입니다.', issueDescription: '용지 걸림이 간헐적으로 발생합니다.', actionDescription: '급지 롤러를 청소했습니다.' }),
   inspection({ id: 504, number: 'INS-260922-004', resourceId: 233, type: 'INCIDENT', status: 'REINSPECTION_REQUIRED', scheduledDate: '2026-09-22', inspectedDate: '2026-09-27', inspectorId: 2, result: 'REPAIR', rentalId: 410, createdAt: '2026-09-22T09:30:00', content: '분실 접수된 카메라의 잔여 구성품을 확인했습니다.', issueDescription: '본체 분실로 구성품만 남아 있습니다.', actionDescription: '잔여 구성품을 보관하고 재점검을 요청했습니다.' }),
-  inspection({ id: 503, number: 'INS-260918-003', resourceId: 234, type: 'ADHOC', status: 'COMPLETED', scheduledDate: '2026-09-18', inspectedDate: '2026-09-18', inspectorId: 1, result: 'DISPOSAL_REVIEW', createdAt: '2026-09-16T13:20:00', content: '노후 태블릿 상태 점검입니다.', issueDescription: '배터리 팽창과 화면 얼룩이 확인되었습니다.', actionDescription: '사용을 중단하고 폐기 검토 대상으로 분류했습니다.', note: '폐기 처리는 후속 단계에서 연결합니다.' }),
+  inspection({ id: 503, number: 'INS-260918-003', resourceId: 234, type: 'ADHOC', status: 'COMPLETED', scheduledDate: '2026-09-18', inspectedDate: '2026-09-18', inspectorId: 1, result: 'DISPOSAL_REVIEW', createdAt: '2026-09-16T13:20:00', content: '노후 태블릿 상태 점검입니다.', issueDescription: '배터리 팽창과 화면 얼룩이 확인되었습니다.', actionDescription: '사용을 중단하고 폐기 검토 대상으로 분류했습니다.', note: '폐기 처리 대기 중입니다.' }),
   inspection({ id: 502, number: 'INS-260917-002', resourceId: 236, type: 'PERIODIC', status: 'SCHEDULED', scheduledDate: '2026-10-15', inspectorId: 2, createdAt: '2026-09-17T09:00:00', content: '음향 장비 정기점검 일정입니다.' }),
   inspection({ id: 501, number: 'INS-260916-001', resourceId: 244, type: 'RETURN', status: 'COMPLETED', scheduledDate: '2026-09-24', inspectedDate: '2026-09-24', inspectorId: 3, result: 'NORMAL', rentalId: 407, createdAt: '2026-09-16T11:10:00', content: '반납된 복합기 출력 상태를 확인했습니다.', actionDescription: '테스트 출력 후 사용 가능으로 판단했습니다.' }),
 ]
@@ -82,7 +82,7 @@ export const inspectionEventsMock: InspectionHistory[] = inspectionsMock.flatMap
       inspectionId: item.id,
       action: 'STATUS_CHANGED',
       title: '점검 중',
-      description: '점검 진행 상태로 변경되었습니다.',
+      description: '점검을 시작했습니다.',
       actorName: inspectorName(item.inspectorId),
       occurredAt: item.updatedAt,
     })
@@ -104,7 +104,7 @@ export const inspectionEventsMock: InspectionHistory[] = inspectionsMock.flatMap
       inspectionId: item.id,
       action: 'STATUS_CHANGED',
       title: '재점검 필요',
-      description: '점검 결과 후속 점검이 필요한 상태로 분류되었습니다.',
+      description: '재점검이 필요합니다.',
       actorName: '김관리',
       occurredAt: item.updatedAt,
     })

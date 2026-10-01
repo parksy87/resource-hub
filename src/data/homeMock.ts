@@ -90,7 +90,7 @@ export const homeMock: HomeBundle = {
     { id: 5, title: '연휴 전 공용 장비 반납 안내', publishedAt: '2026-09-28', important: true },
     { id: 4, title: '회의실 예약 가능 시간이 조정됩니다', publishedAt: '2026-09-25', important: false },
     { id: 3, title: '카메라 렌즈 정기 점검 일정', publishedAt: '2026-09-20', important: true },
-    { id: 2, title: '신규 노트북 8대가 등록되었습니다', publishedAt: '2026-09-18', important: false },
+    { id: 2, title: '본관 3층 노트북 대여 재고 안내', publishedAt: '2026-09-18', important: false },
     { id: 1, title: '업무용 차량 이용 수칙 안내', publishedAt: '2026-09-12', important: false },
   ],
   summary: {

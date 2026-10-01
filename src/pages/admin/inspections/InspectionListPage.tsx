@@ -125,7 +125,7 @@ export default function InspectionListPage() {
         <div>
           <span><SlidersHorizontal size={14} /> INSPECTION MANAGEMENT</span>
           <h2>점검 목록</h2>
-          <p>자원 점검 일정, 결과와 후속 조치를 관리합니다.</p>
+          <p>점검 일정과 결과를 관리합니다.</p>
         </div>
         <Button leadingIcon={<ClipboardPlus size={16} />} onClick={() => navigate(ROUTES.admin.inspectionNew)}>점검 등록</Button>
       </div>
@@ -140,7 +140,7 @@ export default function InspectionListPage() {
 
       <Card padding="none" className="inspection-list-card">
         <div className="inspection-list-toolbar">
-          <div><strong>검색 결과 <b>{result?.totalItems ?? 0}</b>건</strong><span>점검 결과에 따라 자원 상태 연계와 재점검을 구분합니다.</span></div>
+          <div><strong>검색 결과 <b>{result?.totalItems ?? 0}</b>건</strong></div>
           <Select
             aria-label="정렬"
             value={`${filter.sortBy}-${filter.sortDirection}`}
@@ -159,8 +159,8 @@ export default function InspectionListPage() {
         {status === 'success' && result?.items.length === 0 && (
           <div className="inspection-list-state">
             {hasFilters
-              ? <StateDisplay variant="search-empty" compact title="검색 결과가 없습니다" description="검색어나 점검 조건을 변경해보세요." actionLabel="검색 초기화" onAction={resetFilters} />
-              : <EmptyState compact title="등록된 점검이 없습니다" description="점검이 등록되면 이곳에 표시됩니다." actionLabel="점검 등록" onAction={() => navigate(ROUTES.admin.inspectionNew)} />}
+              ? <StateDisplay variant="search-empty" compact title="검색 결과가 없습니다" description="검색어나 점검 조건을 변경해 주세요." actionLabel="검색 초기화" onAction={resetFilters} />
+              : <EmptyState compact title="등록된 점검이 없습니다" actionLabel="점검 등록" onAction={() => navigate(ROUTES.admin.inspectionNew)} />}
           </div>
         )}
         {status === 'success' && result && result.items.length > 0 && (

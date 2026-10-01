@@ -40,7 +40,7 @@ export default function ResourceCreatePage() {
         <div>
           <span><PackagePlus size={14} /> NEW RESOURCE</span>
           <h2>자원 등록</h2>
-          <p><b>필수</b>로 표시된 항목을 입력해 새로운 자원을 등록합니다.</p>
+          <p><b>필수</b> 항목을 입력하세요.</p>
         </div>
       </div>
       <ResourceForm

@@ -33,12 +33,12 @@ const popularColumns: TableColumn<PopularResource>[] = [
 
 function userMetrics(users: UserStatistics) {
   return [
-    { label: '전체 회원', value: users.totalUsers },
-    { label: '활성 회원', value: users.activeUsers },
+    { label: '전체 사용자', value: users.totalUsers },
+    { label: '활성 사용자', value: users.activeUsers },
     { label: '신규 가입', value: users.newUsers },
-    { label: '실제 이용 회원', value: users.actualUsers },
-    { label: '예약 이용 회원', value: users.reservationUsers },
-    { label: '대여 이용 회원', value: users.rentalUsers },
+    { label: '이용 사용자', value: users.actualUsers },
+    { label: '예약 사용자', value: users.reservationUsers },
+    { label: '대여 사용자', value: users.rentalUsers },
   ]
 }
 
@@ -74,12 +74,12 @@ export default function StatisticsPage() {
         <div>
           <span><BarChart3 size={14} /> STATISTICS</span>
           <h2>통계</h2>
-          <p>예약, 대여, 점검, 회원 이용 현황을 기간별로 확인합니다. 현재 수치는 화면 확인용 집계입니다.</p>
+          <p>기간별 운영 현황입니다. 현재 수치는 시연용 집계입니다.</p>
         </div>
         <Button
           variant="outline"
           leadingIcon={<Download size={16} />}
-          onClick={() => addToast({ tone: 'info', title: '엑셀 다운로드는 이후 단계에서 연결합니다.' })}
+          onClick={() => addToast({ tone: 'info', title: '엑셀 다운로드를 준비 중입니다.' })}
         >
           엑셀 다운로드
         </Button>
@@ -91,7 +91,7 @@ export default function StatisticsPage() {
       {status === 'error' && <div className="statistics-state"><ErrorState title={error ?? '통계를 불러오지 못했습니다'} actionLabel="다시 시도" onAction={refetch} /></div>}
       {status === 'success' && data?.summary.empty && (
         <div className="statistics-state">
-          <EmptyState title="검색 결과가 없습니다" description="선택한 카테고리에 해당 자원이 없습니다. 조건을 변경해보세요." actionLabel="조회 초기화" onAction={resetFilter} />
+          <EmptyState title="검색 결과가 없습니다" description="선택한 카테고리에 해당 자원이 없습니다. 조건을 변경해 주세요." actionLabel="조회 초기화" onAction={resetFilter} />
         </div>
       )}
       {status === 'success' && data && !data.summary.empty && (
@@ -111,7 +111,7 @@ export default function StatisticsPage() {
               <Card title="예약 추이" description="기간별 예약 신청, 승인, 취소 건수입니다.">
                 <StatisticsLineChart trend={data.reservations.trend} label="예약 신청, 승인, 취소 건수를 기간 순으로 비교합니다." />
               </Card>
-              <Card title="예약 상태 분포" description="신청, 승인, 반려, 취소, 이용완료 건수입니다.">
+              <Card title="예약 상태 분포" description="신청, 승인, 반려, 취소, 이용 완료 건수입니다.">
                 <StatisticsDonutChart items={data.reservations.statuses} label="예약 상태별 건수 분포입니다." />
               </Card>
             </div>
@@ -143,7 +143,7 @@ export default function StatisticsPage() {
               <p>대여, 반납, 연체 추이와 반납 상태입니다.</p>
             </header>
             <div className="statistics-grid">
-              <Card title="대여/반납 추이" description="기간별 대여, 반납, 연체 건수입니다.">
+              <Card title="대여·반납 추이" description="기간별 대여, 반납, 연체 건수입니다.">
                 <StatisticsBarChart trend={data.rentals.trend} label="대여, 반납, 연체 건수를 기간 순으로 비교합니다." />
               </Card>
               <Card title="반납 상태" description="정상 반납, 일부 반납, 파손, 분실 건수입니다.">
@@ -169,8 +169,8 @@ export default function StatisticsPage() {
 
           <section className="statistics-section" aria-labelledby="user-statistics">
             <header>
-              <h3 id="user-statistics">회원 이용 통계</h3>
-              <p>회원 규모와 신규 가입, 이용 회원 추이입니다.</p>
+              <h3 id="user-statistics">사용자 이용 통계</h3>
+              <p>사용자 현황과 신규 가입 추이입니다.</p>
             </header>
             <div className="statistics-user-grid">
               {userMetrics(data.users).map((item) => (
@@ -180,8 +180,8 @@ export default function StatisticsPage() {
                 </article>
               ))}
             </div>
-            <Card title="신규 가입·이용 회원 추이" description="선택한 기간의 신규 가입과 이용 회원 수입니다.">
-              <StatisticsLineChart trend={data.users.trend} label="신규 가입과 이용 회원 추이입니다." />
+            <Card title="신규 가입·이용 사용자 추이" description="선택한 기간의 신규 가입과 이용 사용자 수입니다.">
+              <StatisticsLineChart trend={data.users.trend} label="신규 가입과 이용 사용자 추이입니다." />
             </Card>
           </section>
 

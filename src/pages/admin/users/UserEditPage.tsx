@@ -86,7 +86,7 @@ export default function UserEditPage() {
           isOpen
           onClose={() => setPending(null)}
           title="관리자 권한으로 변경하시겠습니까?"
-          description="확인하면 이 사용자는 관리자 유형으로 저장됩니다. 실제 권한 인증은 이후 단계에서 연결합니다."
+          description="관리자 유형은 표시용이며 실제 권한에는 반영되지 않습니다."
           size="sm"
           footer={
             <>

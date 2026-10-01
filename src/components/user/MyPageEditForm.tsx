@@ -12,12 +12,12 @@ type ProfileErrors = Partial<Record<keyof MyProfileForm, string>>
 
 function validateProfile(values: MyProfileForm) {
   const next: ProfileErrors = {}
-  if (!values.name.trim()) next.name = '이름을 입력해주세요.'
-  if (!values.phone.trim()) next.phone = '전화번호를 입력해주세요.'
-  else if (!isValidPhone(values.phone)) next.phone = '010-0000-0000 형식으로 입력해주세요.'
-  if (!values.organization.trim()) next.organization = '소속을 입력해주세요.'
-  if (!values.email.trim()) next.email = '이메일을 입력해주세요.'
-  else if (!isValidEmail(values.email)) next.email = '이메일 형식을 확인해주세요.'
+  if (!values.name.trim()) next.name = '이름을 입력해 주세요.'
+  if (!values.phone.trim()) next.phone = '전화번호를 입력해 주세요.'
+  else if (!isValidPhone(values.phone)) next.phone = '010-0000-0000 형식으로 입력해 주세요.'
+  if (!values.organization.trim()) next.organization = '소속을 입력해 주세요.'
+  if (!values.email.trim()) next.email = '이메일을 입력해 주세요.'
+  else if (!isValidEmail(values.email)) next.email = '이메일 형식을 확인해 주세요.'
   return next
 }
 
@@ -55,7 +55,7 @@ function ProfileEditor({ profile }: { profile: MyProfile }) {
       await myPageService.updateMyProfile(values)
       navigate(ROUTES.user.mypage, { state: { profileSaved: true } })
     } catch {
-      setSaveError('회원정보를 저장하지 못했습니다. 잠시 후 다시 시도해 주세요.')
+      setSaveError('회원 정보를 저장하지 못했습니다. 잠시 후 다시 시도해 주세요.')
       setSaving(false)
     }
   }
@@ -63,7 +63,7 @@ function ProfileEditor({ profile }: { profile: MyProfile }) {
   return (
     <>
       <form className="user-mypage-form" onSubmit={submit} noValidate>
-        <Card title="수정할 정보" description="이름, 전화번호, 소속, 이메일을 수정할 수 있습니다.">
+        <Card title="수정할 정보" description="이름, 전화번호, 소속, 이메일을 수정합니다.">
           <div className="user-mypage-form-grid">
             <Input
               label="이름"
@@ -100,7 +100,7 @@ function ProfileEditor({ profile }: { profile: MyProfile }) {
               type="email"
               required
               autoComplete="email"
-              hint="현재 단계에서는 계정 인증 없이 저장됩니다."
+              hint="시연 환경에서는 이메일 인증 없이 저장됩니다."
               value={values.email}
               error={errors.email}
               onChange={(event) => setField('email', event.target.value)}
@@ -108,7 +108,7 @@ function ProfileEditor({ profile }: { profile: MyProfile }) {
           </div>
         </Card>
 
-        <Card title="변경할 수 없는 정보" description="가입일, 회원 상태, 회원 권한은 수정할 수 없습니다.">
+        <Card title="변경할 수 없는 정보" description="가입일, 회원 상태, 회원 권한은 변경할 수 없습니다.">
           <dl className="user-mypage-fields">
             <div><dt>가입일</dt><dd><time dateTime={profile.joinedAt}>{formatReservationDate(profile.joinedAt)}</time></dd></div>
             <div>
@@ -130,8 +130,8 @@ function ProfileEditor({ profile }: { profile: MyProfile }) {
         onClose={() => {
           if (!saving) setConfirmOpen(false)
         }}
-        title="회원정보를 저장할까요?"
-        description="입력한 이름, 전화번호, 소속, 이메일이 마이페이지에 반영됩니다."
+        title="회원 정보를 저장할까요?"
+        description="저장 후 마이페이지로 이동합니다."
         size="sm"
         footer={(
           <>
@@ -143,7 +143,7 @@ function ProfileEditor({ profile }: { profile: MyProfile }) {
         )}
       >
         <div className="user-mypage-withdraw-modal">
-          <p className="user-mypage-confirm">저장 후 마이페이지로 이동합니다. 이메일 계정 인증은 이 단계에서 진행하지 않습니다.</p>
+          <p className="user-mypage-confirm">시연 환경에서는 이메일 인증을 진행하지 않습니다.</p>
           {saveError && <p className="user-mypage-alert" role="alert">{saveError}</p>}
         </div>
       </Modal>
@@ -181,13 +181,13 @@ export function MyPageEditForm() {
     <section className="user-mypage-edit">
       <header className="user-mypage-heading">
         <p>ACCOUNT</p>
-        <h2>회원정보 수정</h2>
+        <h2>회원 정보 수정</h2>
         <Link to={ROUTES.user.mypage}>마이페이지로</Link>
       </header>
-      {visibleStatus === 'loading' && <Loading label="회원정보를 불러오는 중입니다" />}
+      {visibleStatus === 'loading' && <Loading label="회원 정보를 불러오는 중입니다" />}
       {visibleStatus === 'error' && (
         <ErrorState
-          title="회원정보를 불러오지 못했습니다."
+          title="회원 정보를 불러오지 못했습니다."
           description="잠시 후 다시 시도해 주세요."
           actionLabel="다시 시도"
           onAction={() => setRequestId((value) => value + 1)}

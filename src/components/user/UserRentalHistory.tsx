@@ -168,7 +168,7 @@ export function UserRentalHistory() {
       <header className="user-rental-heading">
         <p>RENTAL</p>
         <h2>대여·반납</h2>
-        <p>대여 중인 자원과 반납 일정을 확인하고, 반납이 필요한 건은 직접 신청할 수 있습니다.</p>
+        <p>대여 상태와 반납 일정을 확인합니다.</p>
       </header>
 
       <form
@@ -273,7 +273,7 @@ export function UserRentalHistory() {
         <EmptyState
           title="대여·반납 내역이 없습니다."
           description="자원을 찾아 새 예약을 신청할 수 있습니다."
-          actionLabel="자원 찾아보기"
+          actionLabel="자원 찾기"
           onAction={() => navigate(ROUTES.user.resources)}
         />
       )}

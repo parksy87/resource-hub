@@ -176,7 +176,7 @@ export const dashboardMockData: DashboardData = {
   ],
   workAlerts: [
     { id: 'pending-reservations', title: '승인 대기 예약', description: '검토가 필요한 새 예약이 있습니다.', count: 3, tone: 'info', targetPath: `${ROUTES.admin.reservations}?status=PENDING` },
-    { id: 'returns-today', title: '오늘 반납 예정', description: '반납 상태를 확인해주세요.', count: 5, tone: 'warning', targetPath: `${ROUTES.admin.rentals}?due=today` },
+    { id: 'returns-today', title: '오늘 반납 예정', description: '반납 상태를 확인해 주세요.', count: 5, tone: 'warning', targetPath: `${ROUTES.admin.rentals}?due=today` },
     { id: 'overdue-rentals', title: '반납 지연', description: '사용자 확인이 필요합니다.', count: 2, tone: 'danger', targetPath: `${ROUTES.admin.rentals}?status=OVERDUE` },
     { id: 'scheduled-inspections', title: '점검 예정 자원', description: '이번 주 점검 계획입니다.', count: 4, tone: 'success', targetPath: `${ROUTES.admin.inspections}?status=SCHEDULED` },
   ],

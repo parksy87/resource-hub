@@ -21,7 +21,7 @@ export function UserResourceDetailView() {
       <ErrorState
         title="자원을 찾을 수 없습니다."
         description="주소가 올바른지 확인하거나 자원 목록으로 돌아가 주세요."
-        actionLabel="목록으로 돌아가기"
+        actionLabel="목록으로"
         onAction={() => navigate(ROUTES.user.resources)}
       />
     )
@@ -42,7 +42,7 @@ export function UserResourceDetailView() {
           <h2>{resource.name}</h2>
           <p className="user-resource-status">
             <Badge tone={meta.tone}>{meta.label}</Badge>
-            <span>{canReserve ? '예약할 수 있는 자원입니다.' : reserveBlockedReason[resource.status]}</span>
+            <span>{canReserve ? '예약 가능' : reserveBlockedReason[resource.status]}</span>
           </p>
           <dl>
             <div><dt>자원 코드</dt><dd>{resource.resourceCode}</dd></div>
@@ -53,13 +53,13 @@ export function UserResourceDetailView() {
           <h3>설명</h3>
           <p>{resource.description}</p>
           <h3>이용 안내</h3>
-          <p>{resource.notes || '사용 전 예약 상태와 이용 수칙을 확인해주세요.'}</p>
+          <p>{resource.notes || '사용 전 예약 상태와 이용 수칙을 확인해 주세요.'}</p>
           <h3>관리 정보</h3>
           <p>담당 {resource.managerName} · 보유 {resource.availableQuantity}/{resource.totalQuantity} · 구매일 {resource.purchaseDate ?? '-'}</p>
           {canReserve ? (
-            <Link className="ui-button ui-button--primary ui-button--md" to={`${ROUTES.user.reservations}?resourceId=${resource.id}`}>예약하기</Link>
+            <Link className="ui-button ui-button--primary ui-button--md" to={`${ROUTES.user.reservations}?resourceId=${resource.id}`}>예약 신청</Link>
           ) : (
-            <Button type="button" disabled>예약하기</Button>
+            <Button type="button" disabled>예약 신청</Button>
           )}
         </div>
       </div>

@@ -72,7 +72,7 @@ function ReservationComplete({ result }: { result: ReservationCreateResult }) {
       </dl>
       <div>
         <Link className="ui-button ui-button--primary ui-button--md" to={ROUTES.user.reservationHistory}>예약 내역 보기</Link>
-        <Link className="ui-button ui-button--outline ui-button--md" to={ROUTES.user.home}>홈으로 이동</Link>
+        <Link className="ui-button ui-button--outline ui-button--md" to={ROUTES.user.home}>홈으로</Link>
       </div>
     </section>
   )
@@ -249,7 +249,7 @@ function ReservationEditor() {
       <header className="user-reservation-heading">
         <p>RESERVATION</p>
         <h2>예약 신청</h2>
-        <p>자원과 일정을 확인한 뒤 예약 정보를 입력해 신청합니다.</p>
+        <p>자원과 일정을 선택하고 예약을 신청합니다.</p>
       </header>
       <ol className="user-reservation-steps">
         {reservationSteps.map((step, index) => (
@@ -298,7 +298,7 @@ function ReservationEditor() {
                   <span>{resource.categoryName} · {resource.location}</span>
                   <p className="user-reservation-status">
                     <Badge tone={userStatusMeta(resource.status).tone}>{userStatusMeta(resource.status).label}</Badge>
-                    <span>{resource.status === 'AVAILABLE' ? '예약할 수 있는 자원입니다.' : reserveBlockedReason[resource.status]}</span>
+                    <span>{resource.status === 'AVAILABLE' ? '예약 가능' : reserveBlockedReason[resource.status]}</span>
                   </p>
                   <Link id="reservation-resource-action" className="ui-button ui-button--outline ui-button--sm" to={ROUTES.user.resources}>자원 변경</Link>
                 </div>
@@ -328,11 +328,11 @@ function ReservationEditor() {
               <dl className="user-reservation-applicant">
                 <div><dt>이름</dt><dd>{applicant.name}</dd></div>
                 <div><dt>이메일</dt><dd>{applicant.email}</dd></div>
-                <div><dt>휴대전화</dt><dd>{applicant.phone}</dd></div>
+                <div><dt>전화번호</dt><dd>{applicant.phone}</dd></div>
                 <div><dt>소속</dt><dd>{applicant.organization}</dd></div>
               </dl>
             ) : <Loading label="예약자 정보를 불러오는 중입니다" />}
-            <Link className="user-reservation-edit" to={ROUTES.user.mypage}>정보 수정은 마이페이지에서 할 수 있습니다.</Link>
+            <Link className="user-reservation-edit" to={ROUTES.user.mypage}>정보 수정: 마이페이지</Link>
           </section>
 
           <section>

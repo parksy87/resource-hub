@@ -22,7 +22,7 @@ const actionCopy = {
   },
   reject: {
     title: '예약을 반려하시겠습니까?',
-    description: '예약자에게 전달할 명확한 반려 사유를 입력해주세요.',
+    description: '예약자에게 전달할 반려 사유를 입력해 주세요.',
     confirmLabel: '예약 반려',
   },
   cancel: {
@@ -46,7 +46,7 @@ export function ReservationActionModal({
 
   const handleProcess = async () => {
     if (action === 'reject' && !reason.trim()) {
-      setReasonError('반려 사유를 입력해주세요.')
+      setReasonError('반려 사유를 입력해 주세요.')
       return
     }
 

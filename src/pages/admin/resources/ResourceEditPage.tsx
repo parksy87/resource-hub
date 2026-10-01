@@ -53,7 +53,7 @@ export default function ResourceEditPage() {
         <div>
           <span><Pencil size={14} /> EDIT RESOURCE</span>
           <h2>자원 수정</h2>
-          <p>{data.name}의 기본 정보와 관리 기준을 수정합니다.</p>
+          <p>기본 정보와 관리 기준을 수정합니다.</p>
         </div>
       </div>
       <ResourceForm

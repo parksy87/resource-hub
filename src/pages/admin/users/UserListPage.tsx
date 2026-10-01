@@ -97,7 +97,7 @@ export default function UserListPage() {
         <div>
           <span><UsersRound size={14} /> USER MANAGEMENT</span>
           <h2>사용자 목록</h2>
-          <p>서비스 사용자 정보와 이용 상태를 관리합니다.</p>
+          <p>사용자 정보와 이용 상태를 관리합니다.</p>
         </div>
       </div>
 
@@ -116,8 +116,8 @@ export default function UserListPage() {
         {status === 'success' && result?.items.length === 0 && (
           <div className="user-list-state">
             {hasFilters
-              ? <StateDisplay variant="search-empty" compact title="검색 결과가 없습니다" description="검색어나 필터 조건을 변경해보세요." actionLabel="검색 초기화" onAction={resetFilters} />
-              : <EmptyState compact title="등록된 사용자가 없습니다" description="사용자가 등록되면 이곳에 표시됩니다." />}
+              ? <StateDisplay variant="search-empty" compact title="검색 결과가 없습니다" description="검색어나 필터 조건을 변경해 주세요." actionLabel="검색 초기화" onAction={resetFilters} />
+              : <EmptyState compact title="등록된 사용자가 없습니다" />}
           </div>
         )}
         {status === 'success' && result && result.items.length > 0 && (

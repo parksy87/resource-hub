@@ -14,6 +14,7 @@ import { Button, Checkbox, Input, Tooltip } from '../../components/ui'
 
 
 
+import { PORTFOLIO_ADMIN_DISPLAY_ID } from '../../config/portfolioAuth'
 import { authService } from '../../services/authService'
 
 
@@ -110,7 +111,7 @@ export default function AdminLoginPage() {
 
 
 
-    const email = String(formData.get('email') ?? '')
+    const loginId = String(formData.get('loginId') ?? '')
 
 
 
@@ -130,7 +131,7 @@ export default function AdminLoginPage() {
 
 
 
-      const user = await authService.loginAsAdmin(email, password)
+      const user = await authService.loginAsAdmin(loginId, password)
       const token = await authService.getIdToken()
       useAdminSessionStore.getState().applyAdminUser(user, token)
 
@@ -226,11 +227,11 @@ export default function AdminLoginPage() {
 
 
 
-            <h1>조직의 모든 자원을<br />한눈에, 빈틈없이.</h1>
+            <h1>자원 관리 시스템</h1>
 
 
 
-            <p>예약부터 반납, 점검까지 자원 운영의 전체 흐름을 하나의 시스템에서 관리합니다.</p>
+            <p>예약, 대여·반납, 점검 업무를 관리합니다.</p>
 
 
 
@@ -242,15 +243,15 @@ export default function AdminLoginPage() {
 
 
 
-            <li><CheckCircle2 size={16} /> 명확한 자원 상태와 업무 흐름</li>
+            <li><CheckCircle2 size={16} /> 자원 현황 및 상태 관리</li>
 
 
 
-            <li><CheckCircle2 size={16} /> 역할에 기반한 관리자 화면</li>
+            <li><CheckCircle2 size={16} /> 예약 승인 및 반려</li>
 
 
 
-            <li><CheckCircle2 size={16} /> 확장 가능한 운영 데이터 구조</li>
+            <li><CheckCircle2 size={16} /> 대여·반납 및 점검</li>
 
 
 
@@ -338,11 +339,13 @@ export default function AdminLoginPage() {
 
 
 
-            <h2>다시 만나 반갑습니다</h2>
+            <h2>관리자 로그인</h2>
 
 
 
-            <p>관리자 계정으로 로그인하여 운영 현황을 확인하세요.</p>
+            <p>
+              아이디 <strong>{PORTFOLIO_ADMIN_DISPLAY_ID}</strong>와 관리자 비밀번호를 입력하세요.
+            </p>
 
 
 
@@ -358,19 +361,19 @@ export default function AdminLoginPage() {
 
 
 
-              name="email"
+              name="loginId"
 
 
 
-              type="email"
+              type="text"
 
 
 
-              label="이메일"
+              label="아이디"
 
 
 
-              placeholder="admin@example.com"
+              placeholder={PORTFOLIO_ADMIN_DISPLAY_ID}
 
 
 
@@ -482,7 +485,10 @@ export default function AdminLoginPage() {
 
 
 
-            <p><strong>보안 안내</strong><span>공용 기기에서는 로그인 유지를 선택하지 마세요.</span></p>
+            <p>
+              <strong>보안 안내</strong>
+              <span>공용 기기에서는 로그인 유지를 선택하지 마세요.</span>
+            </p>
 
 
 

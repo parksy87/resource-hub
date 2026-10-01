@@ -9,7 +9,7 @@ export function ResourceStatusChart({
   total: number
 }) {
   if (items.length === 0) {
-    return <EmptyState compact title="상태 데이터가 없습니다" description="자원 상태가 집계되면 차트가 표시됩니다." />
+    return <EmptyState compact title="상태 데이터가 없습니다" />
   }
 
   const segments = items.map((item, index) => ({
@@ -53,7 +53,7 @@ export function ResourceStatusChart({
 
 export function ResourceCategoryChart({ items }: { items: ResourceCategoryStatistic[] }) {
   if (items.length === 0) {
-    return <EmptyState compact title="카테고리 데이터가 없습니다" description="카테고리별 자원이 집계되면 표시됩니다." />
+    return <EmptyState compact title="카테고리 데이터가 없습니다" />
   }
 
   const maxCount = Math.max(...items.map((item) => item.count))

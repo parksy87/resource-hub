@@ -23,13 +23,13 @@ export default function AdminPlaceholderPage({
           <h2>{title}</h2>
           <p>{description}</p>
         </div>
-        <Badge tone="green" dot>Layout ready</Badge>
+        <Badge tone="neutral">준비 중</Badge>
       </div>
       <Card padding="none" className="admin-placeholder-card">
         <AdminPageState
           type="coming-soon"
           title={`${title} 기능은 준비 중입니다`}
-          description="현재 단계에서는 관리자 공통 레이아웃과 라우팅만 제공합니다. 실제 데이터와 업무 기능은 후속 단계에서 구현됩니다."
+          description="메뉴를 준비 중입니다."
         />
       </Card>
     </div>

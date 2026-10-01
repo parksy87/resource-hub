@@ -140,7 +140,7 @@ export function NotificationSettingsForm({ values, onChange }: NotificationProps
       </div>
       <div className="settings-channel">
         <h4>알림 채널</h4>
-        <p>이메일과 SMS는 사용 여부만 저장합니다. 실제 발송은 연결하지 않습니다.</p>
+        <p>이메일과 SMS는 사용 여부만 저장되며 알림은 발송되지 않습니다.</p>
         <SettingsToggle label="이메일 알림 사용 여부" checked={values.emailEnabled} onChange={(emailEnabled) => onChange({ emailEnabled })} />
         <SettingsToggle label="SMS 알림 사용 여부" checked={values.smsEnabled} onChange={(smsEnabled) => onChange({ smsEnabled })} />
         <SettingsToggle label="시스템 알림 사용 여부" checked={values.systemEnabled} onChange={(systemEnabled) => onChange({ systemEnabled })} />

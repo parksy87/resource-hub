@@ -70,7 +70,7 @@ export function InspectionForm({
       {parentNumber && (
         <p className="inspection-parent-note">상위 점검 {parentNumber}을 참고해 재점검을 등록합니다. 새 점검 상태는 점검 예정입니다.</p>
       )}
-      <Card title="점검 정보" description="자원과 점검 일정을 등록합니다. 필수 항목을 입력해주세요.">
+      <Card title="점검 정보" description="필수 항목을 입력해 주세요.">
         <div className="inspection-form-grid">
           <Select
             label="자원"

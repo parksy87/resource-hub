@@ -67,9 +67,9 @@ function resource(
     status,
     purchaseDate,
     managementEndDate: '2030-12-31',
-    description: `${name} 업무용 공용 자원입니다. 사용 전 예약 및 이용 수칙을 확인해주세요.`,
+    description: '사용 전 예약 및 이용 수칙을 확인해 주세요.',
     imageUrl,
-    notes: '반출 시 담당자 확인이 필요합니다.',
+    notes: '이용 전 자원 상태를 확인해 주세요.',
     isReservable: status !== 'DISPOSED',
     maxRentalDays: type === 'MEETING_ROOM' ? 1 : 7,
     createdAt: `${createdDate}T09:00:00+09:00`,
@@ -99,5 +99,5 @@ export const resourcesMock: Resource[] = [
 
 export const resourceHistories: ResourceHistory[] = [
   { id: 1, resourceId: 248, type: 'CHANGE', title: '자원 정보 수정', description: '보관 위치가 본관 2층에서 본관 3층으로 변경되었습니다.', actorName: '김관리', occurredAt: '2026-09-30T16:20:00+09:00' },
-  { id: 2, resourceId: 248, type: 'CHANGE', title: '자원 등록', description: '신규 자원이 시스템에 등록되었습니다.', actorName: '김관리', occurredAt: '2026-09-30T09:00:00+09:00' },
+  { id: 2, resourceId: 248, type: 'CHANGE', title: '자원 등록', description: 'MacBook Pro 14″ M4를 등록했습니다.', actorName: '김관리', occurredAt: '2026-09-30T09:00:00+09:00' },
 ]

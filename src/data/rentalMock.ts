@@ -38,7 +38,7 @@ function rental(seed: RentalSeed): Rental {
     status: seed.status,
     processedBy: processed ? 1 : null,
     rentalProcessedAt: processed && seed.rentedAt ? `${seed.rentedAt}+09:00` : null,
-    checkoutNote: seed.checkoutNote ?? (processed ? '구성품 확인 후 인계했습니다.' : null),
+    checkoutNote: seed.checkoutNote ?? (processed ? '대여 처리함' : null),
     returnProcessedBy: returned ? 1 : null,
     returnProcessedAt: returned && seed.returnedAt ? `${seed.returnedAt}+09:00` : null,
     returnRequestedAt: seed.returnRequestedAt
@@ -47,7 +47,7 @@ function rental(seed: RentalSeed): Rental {
         ? `${seed.rentedAt ?? seed.requestedAt}+09:00`
         : null,
     returnStatus: returned ? seed.returnStatus ?? 'NORMAL' : null,
-    returnNote: returned ? seed.returnNote ?? '이상 없이 반납되었습니다.' : null,
+    returnNote: returned ? seed.returnNote ?? '정상 반납' : null,
     createdAt: `${seed.requestedAt}+09:00`,
     updatedAt: `${seed.returnedAt ?? seed.rentedAt ?? seed.requestedAt}+09:00`,
   }

@@ -134,7 +134,7 @@ export default function UserDetailPage() {
             )}
           </Card>
 
-          <Card title="대여/반납 이력" description="최근 대여와 반납 내역입니다.">
+          <Card title="대여·반납 이력" description="최근 대여와 반납 내역입니다.">
             {data.rentals.length === 0 ? <p className="user-empty-copy">대여 이력이 없습니다.</p> : (
               <div className="user-table-scroll">
                 <table className="user-mini-table">

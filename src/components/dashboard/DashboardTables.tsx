@@ -62,7 +62,6 @@ export function RecentReservationsTable({ items }: { items: RecentReservation[] 
         <EmptyState
           compact
           title="최근 예약이 없습니다"
-          description="새로운 예약 신청이 접수되면 이곳에 표시됩니다."
         />
       }
     />
@@ -80,7 +79,6 @@ export function RecentResourcesTable({ items }: { items: RecentResource[] }) {
         <EmptyState
           compact
           title="최근 등록된 자원이 없습니다"
-          description="자원을 등록하면 최근 순서대로 확인할 수 있습니다."
         />
       }
     />

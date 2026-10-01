@@ -7,8 +7,8 @@ export default function MyPageEdit() {
   if (!isLoggedIn) {
     return (
       <MyPageGate
-        title="회원정보 수정"
-        description="회원정보 수정은 로그인 후 이용할 수 있습니다."
+        title="회원 정보 수정"
+        description="회원 정보 수정은 로그인 후 이용할 수 있습니다."
       />
     )
   }

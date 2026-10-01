@@ -150,7 +150,7 @@ export function buildStatistics(filter: StatisticsFilter, forceEmpty = false): S
   const labels = labelsFor(filter)
   const rates = filter.period === 'CUSTOM' ? changeRates['30D'] : changeRates[filter.period]
   const summaryKeys: StatisticsSummaryItem['key'][] = ['reservations', 'approved', 'cancelled', 'rentals', 'returned', 'overdue', 'inspections', 'users']
-  const summaryLabels = ['전체 예약', '승인 예약', '취소 예약', '대여 건수', '반납 완료', '연체 건수', '점검 건수', '이용 회원 수']
+  const summaryLabels = ['전체 예약', '승인 예약', '취소 예약', '대여 건수', '반납 완료', '연체 건수', '점검 건수', '이용 사용자 수']
   const summaryBases = [346, 214, 28, 205, 169, 20, 59, 86]
   const items: StatisticsSummaryItem[] = summaryKeys.map((key, index) => ({
     key,
@@ -266,7 +266,7 @@ export function buildStatistics(filter: StatisticsFilter, forceEmpty = false): S
       rentalUsers: amount(61),
       trend: trend(labels, [
         { key: 'joined', label: '신규 가입', total: amount(14) },
-        { key: 'active', label: '이용 회원', total: amount(86) },
+        { key: 'active', label: '이용 사용자', total: amount(86) },
       ]),
     },
   }

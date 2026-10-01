@@ -115,9 +115,9 @@ export function UserNotificationDetail() {
             </dl>
             {targetPath && (
               <Link className="ui-button ui-button--md" to={targetPath}>
-                {detail.relatedTarget.type === 'reservation' && '예약 상세로 이동'}
-                {detail.relatedTarget.type === 'rental' && '대여 상세로 이동'}
-                {detail.relatedTarget.type === 'resource' && '자원 상세로 이동'}
+                {detail.relatedTarget.type === 'reservation' && '예약 상세'}
+                {detail.relatedTarget.type === 'rental' && '대여 상세'}
+                {detail.relatedTarget.type === 'resource' && '자원 상세'}
               </Link>
             )}
           </>

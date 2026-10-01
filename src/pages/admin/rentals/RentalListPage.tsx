@@ -129,7 +129,7 @@ export default function RentalListPage() {
         <div>
           <span><SlidersHorizontal size={14} /> RENTAL MANAGEMENT</span>
           <h2>대여 목록</h2>
-          <p>승인된 자원의 대여와 반납 상태를 확인하고 처리합니다.</p>
+          <p>대여와 반납 상태를 관리합니다.</p>
         </div>
       </div>
 
@@ -162,7 +162,7 @@ export default function RentalListPage() {
         {status === 'error' && <div className="rental-list-state"><ErrorState compact title={error ?? '정보를 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.'} actionLabel="다시 시도" onAction={refetch} /></div>}
         {status === 'success' && result?.items.length === 0 && (
           <div className="rental-list-state">
-            {hasFilters ? <StateDisplay variant="search-empty" compact title="검색 결과가 없습니다" description="검색어나 대여 조건을 변경해보세요." actionLabel="검색 초기화" onAction={resetFilters} /> : <EmptyState compact title="등록된 대여 건이 없습니다" description="대여가 접수되면 이곳에 표시됩니다." />}
+            {hasFilters ? <StateDisplay variant="search-empty" compact title="검색 결과가 없습니다" description="검색어나 대여 조건을 변경해 주세요." actionLabel="검색 초기화" onAction={resetFilters} /> : <EmptyState compact title="등록된 대여 건이 없습니다" />}
           </div>
         )}
         {status === 'success' && result && result.items.length > 0 && (

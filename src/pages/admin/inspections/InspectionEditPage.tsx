@@ -52,7 +52,7 @@ export default function InspectionEditPage() {
       })
       navigate(ROUTES.admin.inspectionDetail(inspectionId))
     } catch {
-      addToast({ tone: 'error', title: '점검 정보를 수정하지 못했습니다.', description: '완료된 점검이거나 입력 내용을 확인해주세요.' })
+      addToast({ tone: 'error', title: '점검 정보를 수정하지 못했습니다.', description: '완료된 점검이거나 입력 내용을 확인해 주세요.' })
     } finally {
       setIsSubmitting(false)
     }

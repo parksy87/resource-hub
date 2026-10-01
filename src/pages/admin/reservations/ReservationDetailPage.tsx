@@ -79,7 +79,7 @@ export default function ReservationDetailPage() {
 
       <div className="reservation-detail-layout">
         <div className="reservation-detail-main">
-          <Card title="예약 정보" description="예약 신청 및 처리 상태입니다.">
+          <Card title="예약 정보">
             <div className={`reservation-status-banner is-${data.status.toLowerCase()}`}>
               <span><CalendarCheck2 size={22} /></span>
               <div><ReservationStatusBadge status={data.status} /><strong>{statusMeta.label}</strong><p>{statusMeta.description}</p></div>
@@ -94,7 +94,7 @@ export default function ReservationDetailPage() {
             </dl>
           </Card>
 
-          <Card title="이용 정보" description="자원 이용 일정과 신청 내용을 확인합니다.">
+          <Card title="이용 정보">
             <dl className="reservation-detail-list">
               <DetailItem label="이용 시작일" value={<span className="reservation-value-icon"><Clock3 size={14} />{formatDateTime(data.startAt)}</span>} />
               <DetailItem label="이용 종료일" value={<span className="reservation-value-icon"><Clock3 size={14} />{formatDateTime(data.endAt)}</span>} />

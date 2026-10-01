@@ -58,8 +58,7 @@ export function AdminHeader({ title, breadcrumbs, onOpenMobileMenu }: AdminHeade
             onClick={() =>
               addToast({
                 tone: 'info',
-                title: '알림 센터는 준비 중입니다.',
-                description: '후속 단계에서 실제 알림 목록과 연결됩니다.',
+                title: '알림 기능을 준비 중입니다.',
               })
             }
           >
@@ -85,7 +84,7 @@ export function AdminHeader({ title, breadcrumbs, onOpenMobileMenu }: AdminHeade
             onSelect={(id) => {
               if (id === 'settings') navigate(ROUTES.admin.settings)
               if (id === 'profile') {
-                addToast({ tone: 'info', title: '프로필 화면은 준비 중입니다.' })
+                addToast({ tone: 'info', title: '프로필 기능을 준비 중입니다.' })
               }
               if (id === 'logout') {
                 void authService.logout().finally(() => {

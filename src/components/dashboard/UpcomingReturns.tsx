@@ -24,7 +24,6 @@ export function UpcomingReturns({ items }: { items: UpcomingReturn[] }) {
       <EmptyState
         compact
         title="반납 예정 자원이 없습니다"
-        description="현재 대여 중인 자원의 반납 일정이 없습니다."
       />
     )
   }

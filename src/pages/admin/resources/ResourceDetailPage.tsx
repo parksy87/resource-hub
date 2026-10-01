@@ -29,7 +29,7 @@ import { formatDate, formatDateTime } from '../../../utils/date'
 
 const historyTabs = [
   { id: 'RESERVATION', label: '예약 이력' },
-  { id: 'RENTAL', label: '대여/반납 이력' },
+  { id: 'RENTAL', label: '대여·반납 이력' },
   { id: 'INSPECTION', label: '점검 이력' },
   { id: 'CHANGE', label: '변경 이력' },
 ]
@@ -94,7 +94,7 @@ export default function ResourceDetailPage() {
       </div>
 
       <div className="resource-detail-grid">
-        <Card title="기본 정보" description="자원의 등록 정보와 관리 기준입니다." className="resource-detail-info-card">
+        <Card title="기본 정보" className="resource-detail-info-card">
           <dl className="resource-detail-list">
             <DetailItem label="자원 코드" value={<strong className="resource-code">{data.resourceCode}</strong>} />
             <DetailItem label="자원 분류" value={data.categoryName} />
@@ -128,7 +128,7 @@ export default function ResourceDetailPage() {
             {data.imageUrl ? (
               <img className="resource-detail-image" src={data.imageUrl} alt={`${data.name} 대표 이미지`} />
             ) : (
-              <EmptyState compact title="등록된 이미지가 없습니다" description="수정 화면에서 대표 이미지를 추가할 수 있습니다." />
+              <EmptyState compact title="등록된 이미지가 없습니다" />
             )}
           </Card>
         </div>
@@ -136,8 +136,8 @@ export default function ResourceDetailPage() {
 
       <Card padding="none" className="resource-history-card">
         <div className="resource-history-heading">
-          <div><h3>관련 이력</h3><p>예약, 대여·반납, 점검 및 정보 변경 기록을 확인합니다.</p></div>
-          <Badge tone="neutral">API 연결 예정</Badge>
+          <div><h3>관련 이력</h3><p>예약, 대여·반납, 점검, 변경 이력입니다.</p></div>
+          <Badge tone="neutral">최근 기록</Badge>
         </div>
         <Tabs
           items={historyTabs}
@@ -147,7 +147,7 @@ export default function ResourceDetailPage() {
         />
         <div className="resource-history-content">
           {histories.length === 0 ? (
-            <EmptyState compact title={`${historyTabs.find((tab) => tab.id === activeHistory)?.label}이 없습니다`} description="향후 관련 업무 데이터가 연결되면 이곳에 표시됩니다." />
+            <EmptyState compact title={`${historyTabs.find((tab) => tab.id === activeHistory)?.label}이 없습니다`} />
           ) : (
             <ol className="resource-history-timeline">
               {histories.map((history) => (
@@ -174,7 +174,7 @@ export default function ResourceDetailPage() {
         onClose={() => setDeleteOpen(false)}
         onConfirm={() => void handleDelete()}
         title="해당 자원을 삭제하시겠습니까?"
-        description={`${data.name} (${data.resourceCode}) 자원을 삭제합니다. 관련 이력이 있는 경우 삭제 전 다시 확인해주세요.`}
+        description={`${data.name} (${data.resourceCode}) 자원을 삭제합니다. 관련 이력이 있는 경우 삭제 전 다시 확인해 주세요.`}
         confirmLabel="자원 삭제"
       />
     </div>

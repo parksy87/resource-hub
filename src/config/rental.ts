@@ -6,8 +6,8 @@ export const rentalStatusMeta: Record<
   { label: string; tone: BadgeTone; description: string }
 > = {
   REQUESTED: { label: '대여 신청', tone: 'yellow', description: '관리자의 대여 처리를 기다리고 있습니다.' },
-  RENTED: { label: '대여 중', tone: 'blue', description: '자원이 사용자에게 대여되었습니다.' },
-  RETURN_REQUESTED: { label: '반납 신청', tone: 'purple', description: '사용자의 반납 신청을 확인해야 합니다.' },
+  RENTED: { label: '대여 중', tone: 'blue', description: '대여 중입니다.' },
+  RETURN_REQUESTED: { label: '반납 신청', tone: 'purple', description: '관리자 확인 대기 중입니다.' },
   RETURNED: { label: '반납 완료', tone: 'green', description: '반납 처리가 완료되었습니다.' },
   OVERDUE: { label: '연체', tone: 'red', description: '반납 예정일이 지났지만 아직 반납되지 않았습니다.' },
 }

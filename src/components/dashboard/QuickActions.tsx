@@ -24,7 +24,7 @@ const quickActions: QuickAction[] = [
   { label: '대여 처리', description: '승인 예약 대여', path: `${ROUTES.admin.rentals}?action=checkout`, icon: PackageCheck },
   { label: '반납 처리', description: '반납 상태 확인', path: `${ROUTES.admin.rentals}?action=return`, icon: RotateCcw },
   { label: '점검 등록', description: '점검 일정 추가', path: `${ROUTES.admin.inspections}?action=new`, icon: ClipboardPlus },
-  { label: '사용자 관리', description: '회원 상태 확인', path: ROUTES.admin.users, icon: UsersRound },
+  { label: '사용자 관리', description: '사용자 상태 확인', path: ROUTES.admin.users, icon: UsersRound },
 ]
 
 export function QuickActions() {

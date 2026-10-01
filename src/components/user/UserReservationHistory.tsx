@@ -165,7 +165,7 @@ export function UserReservationHistory() {
       <header className="user-history-heading">
         <p>RESERVATION</p>
         <h2>예약 내역</h2>
-        <p>신청한 예약의 상태와 이용 일정을 확인하고, 취소 가능한 예약을 직접 취소할 수 있습니다.</p>
+        <p>예약 상태와 이용 일정을 확인합니다.</p>
       </header>
 
       <form
@@ -272,7 +272,7 @@ export function UserReservationHistory() {
         <EmptyState
           title="예약 내역이 없습니다."
           description="자원을 찾아 새 예약을 신청할 수 있습니다."
-          actionLabel="자원 찾아보기"
+          actionLabel="자원 찾기"
           onAction={() => navigate(ROUTES.user.resources)}
         />
       )}

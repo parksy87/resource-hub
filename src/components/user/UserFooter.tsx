@@ -5,7 +5,7 @@ export function UserFooter() {
   const addToast = useUiStore((state) => state.addToast)
 
   function showLater(title: string) {
-    addToast({ tone: 'info', title: `${title}은 이후 단계에서 연결합니다.` })
+    addToast({ tone: 'info', title: `${title}을 준비 중입니다.` })
   }
 
   return (

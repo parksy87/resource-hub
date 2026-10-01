@@ -57,7 +57,7 @@ export function UserResourceCatalog() {
       <header className="user-resource-heading">
         <p>RESOURCES</p>
         <h2>자원 찾기</h2>
-        <p>필요한 자원을 검색하고 상세 정보에서 예약을 시작할 수 있습니다.</p>
+        <p>자원을 검색하고 예약합니다.</p>
       </header>
 
       <form className="user-resource-search" onSubmit={onSearch}>

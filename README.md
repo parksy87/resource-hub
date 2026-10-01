@@ -14,6 +14,20 @@ npm run dev
 
 검증: `npm run lint`, `npm run typecheck`, `npm run build`
 
+## 포트폴리오 시연 로그인
+
+로컬 기본 주소는 Vite 개발 서버(`http://localhost:5173`)입니다.
+
+| 구분 | URL | 시연 입력 | 인증 방식 |
+|------|-----|-----------|-----------|
+| 사용자 | `/login` | 아이디 `user`, 비밀번호 `1111` | Firebase 미사용, mock 세션 (대표 사용자 **김민수** 프로필) |
+| 관리자 | `/admin/login` | 아이디 `admin`, 비밀번호는 Firebase Console에 등록한 값 | Firebase Authentication |
+
+- 관리자 Firebase **이메일**은 `.env`의 `VITE_ADMIN_AUTH_EMAIL`에만 설정합니다. 화면에서는 아이디 `admin`만 입력합니다.
+- 관리자 **비밀번호**와 실제 Firebase 이메일은 README·코드에 기록하지 않습니다.
+- 예약·사용자 목록 등의 더미 데이터(`usersMock`, `reservationUsers` 등)는 시연용 샘플이며, 로그인 계정과 1:1로 대응하지 않습니다.
+- 사용자 mock 세션과 관리자 Firebase 세션은 서로 독립입니다.
+
 ## 프로젝트 구조
 
 ```text

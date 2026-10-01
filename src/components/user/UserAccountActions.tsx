@@ -64,7 +64,7 @@ export function UserAccountActions({ onNavigate }: UserAccountActionsProps) {
 
           onClick={() => {
 
-            addToast({ tone: 'info', title: '시연용 화면입니다. 회원가입 기능은 제공하지 않습니다.' })
+            addToast({ tone: 'info', title: '회원가입은 제공하지 않습니다.' })
 
             onNavigate?.()
 

@@ -158,7 +158,7 @@ export default function ResourceListPage() {
         <div>
           <span><SlidersHorizontal size={14} /> RESOURCE MANAGEMENT</span>
           <h2>자원 목록</h2>
-          <p>등록된 자원의 위치, 담당자와 운영 상태를 조회하고 관리합니다.</p>
+          <p>자원 위치, 담당자, 상태를 관리합니다.</p>
         </div>
         <Button leadingIcon={<Plus size={17} />} onClick={() => navigate(ROUTES.admin.resourceNew)}>
           자원 등록
@@ -211,7 +211,6 @@ export default function ResourceListPage() {
         <div className="resource-list-toolbar">
           <div>
             <strong>검색 결과 <b>{result?.totalItems ?? 0}</b>건</strong>
-            <span>자원 정보를 클릭하면 상세 화면으로 이동합니다.</span>
           </div>
           <Select
             aria-label="정렬"
@@ -239,7 +238,7 @@ export default function ResourceListPage() {
         {status === 'success' && result && result.items.length === 0 && (
           <div className="resource-list-state">
             {hasFilters ? (
-              <StateDisplay variant="search-empty" compact title="검색 결과가 없습니다" description="검색어나 필터 조건을 변경해보세요." actionLabel="검색 초기화" onAction={resetFilters} />
+              <StateDisplay variant="search-empty" compact title="검색 결과가 없습니다" description="검색어나 필터 조건을 변경해 주세요." actionLabel="검색 초기화" onAction={resetFilters} />
             ) : (
               <div className="resource-list-state">
                 <EmptyState
@@ -247,8 +246,8 @@ export default function ResourceListPage() {
                   title="등록된 자원이 없습니다"
                   description={
                     useFirestoreResources()
-                      ? '첫 자원을 등록하거나 포트폴리오용 샘플을 Firestore에 추가할 수 있습니다.'
-                      : '첫 자원을 등록하거나 mock 데이터를 확인해 주세요.'
+                      ? '첫 자원을 등록하거나 샘플 데이터를 추가해 주세요.'
+                      : '등록된 자원이 없습니다.'
                   }
                   actionLabel="자원 등록"
                   onAction={() => navigate(ROUTES.admin.resourceNew)}
@@ -256,7 +255,7 @@ export default function ResourceListPage() {
                 {useFirestoreResources() && (
                   <div style={{ display: 'flex', justifyContent: 'center', marginTop: 12 }}>
                     <Button size="sm" variant="outline" isLoading={seeding} onClick={() => void handleSeedPortfolioSamples()}>
-                      포트폴리오 샘플 6건 등록
+                      샘플 6건 등록
                     </Button>
                   </div>
                 )}

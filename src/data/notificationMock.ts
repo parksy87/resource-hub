@@ -4,7 +4,7 @@ export const notificationsMock: Notification[] = [
   {
     id: 'ntf-16',
     type: 'system',
-    title: '시스템 공지사항이 등록되었습니다.',
+    title: '10월 공용 자원 이용 안내',
     content: '10월 공용 자원 이용 안내가 등록되었습니다. 반납 기한과 회의실 이용 시간을 확인해 주세요.',
     isRead: false,
     createdAt: '2026-10-01T01:10:00+09:00',
@@ -67,7 +67,7 @@ export const notificationsMock: Notification[] = [
     id: 'ntf-09',
     type: 'rental',
     title: '반납 처리가 완료되었습니다.',
-    content: 'Dell UltraSharp 32 반납 처리가 완료되었습니다. 이용해 주셔서 감사합니다.',
+    content: 'Dell UltraSharp 32 반납 처리가 완료되었습니다.',
     isRead: true,
     createdAt: '2026-09-27T17:20:00+09:00',
     relatedTarget: { type: 'rental', id: 416, name: 'Dell UltraSharp 32' },

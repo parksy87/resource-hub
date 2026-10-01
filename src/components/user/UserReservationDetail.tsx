@@ -157,7 +157,7 @@ export function UserReservationDetail() {
                 items={[
                   { label: '이름', value: detail.userName },
                   { label: '이메일', value: detail.userEmail },
-                  { label: '휴대전화', value: detail.userPhone },
+                  { label: '전화번호', value: detail.userPhone },
                   { label: '소속', value: detail.organization },
                 ]}
               />

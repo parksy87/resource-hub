@@ -143,7 +143,7 @@ export default function ReservationListPage() {
         <div>
           <span><SlidersHorizontal size={14} /> RESERVATION MANAGEMENT</span>
           <h2>예약 목록</h2>
-          <p>예약 신청을 검토하고 승인, 반려 또는 취소 처리합니다.</p>
+          <p>예약 신청을 승인, 반려 또는 취소합니다.</p>
         </div>
       </div>
 
@@ -190,7 +190,7 @@ export default function ReservationListPage() {
 
       <Card padding="none" className="reservation-list-card">
         <div className="reservation-list-toolbar">
-          <div><strong>검색 결과 <b>{result?.totalItems ?? 0}</b>건</strong><span>신청 상태의 예약은 목록에서 바로 처리할 수 있습니다.</span></div>
+          <div><strong>검색 결과 <b>{result?.totalItems ?? 0}</b>건</strong><span>신청 건은 목록에서 처리할 수 있습니다.</span></div>
           <Select
             aria-label="정렬"
             value={`${filter.sortBy}-${filter.sortDirection}`}
@@ -211,9 +211,9 @@ export default function ReservationListPage() {
         {status === 'success' && result?.items.length === 0 && (
           <div className="reservation-list-state">
             {hasFilters ? (
-              <StateDisplay variant="search-empty" compact title="검색 결과가 없습니다" description="검색어나 예약 조건을 변경해보세요." actionLabel="검색 초기화" onAction={resetFilters} />
+              <StateDisplay variant="search-empty" compact title="검색 결과가 없습니다" description="검색어나 예약 조건을 변경해 주세요." actionLabel="검색 초기화" onAction={resetFilters} />
             ) : (
-              <EmptyState compact title="등록된 예약이 없습니다" description="새 예약 신청이 접수되면 이곳에 표시됩니다." />
+              <EmptyState compact title="등록된 예약이 없습니다" />
             )}
           </div>
         )}

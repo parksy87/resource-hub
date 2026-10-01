@@ -185,7 +185,7 @@ export default function SettingsPage() {
         <div>
           <span>SETTINGS</span>
           <h2>시스템 설정</h2>
-          <p>자원관리 시스템의 기본 운영 설정을 확인하고 관리합니다.</p>
+          <p>시스템 운영 설정을 관리합니다.</p>
         </div>
       </div>
       {status === 'loading' && <Loading size="lg" label="시스템 설정을 불러오는 중입니다" />}

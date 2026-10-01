@@ -41,7 +41,7 @@ export const reservationHistoryTabs = [
   { id: 'APPROVED', label: '승인' },
   { id: 'REJECTED', label: '반려' },
   { id: 'CANCELLED', label: '취소' },
-  { id: 'COMPLETED', label: '이용완료' },
+  { id: 'COMPLETED', label: '이용 완료' },
 ] as const
 
 export const reservationProcessLabel = {

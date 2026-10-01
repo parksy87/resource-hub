@@ -41,7 +41,7 @@ export function RentalProcessModal({ rental, onClose, onSuccess }: RentalProcess
     <Modal
       isOpen
       onClose={onClose}
-      title="해당 자원의 대여 처리를 진행하시겠습니까?"
+      title="대여 처리하시겠습니까?"
       description="확인하면 대여 신청 상태가 대여 중으로 변경됩니다."
       size="sm"
       footer={
@@ -102,7 +102,7 @@ export function RentalReturnModal({ rental, onClose, onSuccess }: RentalProcessM
       onSuccess()
       onClose()
     } catch {
-      addToast({ tone: 'error', title: '반납 처리를 완료하지 못했습니다.', description: '입력 내용과 현재 상태를 확인해주세요.' })
+      addToast({ tone: 'error', title: '반납 처리를 완료하지 못했습니다.', description: '입력 내용과 현재 상태를 확인해 주세요.' })
     } finally {
       setIsProcessing(false)
     }

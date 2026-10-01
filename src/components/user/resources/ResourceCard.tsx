@@ -18,7 +18,7 @@ export function ResourceReserveLink({ item }: { item: Pick<ResourceListItem, 'id
   if (item.status === 'AVAILABLE') {
     return (
       <Link className="ui-button ui-button--primary ui-button--sm" to={`${ROUTES.user.reservations}?resourceId=${item.id}`}>
-        예약하기
+        예약 신청
       </Link>
     )
   }
@@ -35,7 +35,7 @@ export function ResourceStatusLine({ status }: { status: ResourceListItem['statu
   return (
     <p className="user-resource-status">
       <Badge tone={meta.tone}>{meta.label}</Badge>
-      <span>{reserveBlockedReason[status] || '예약할 수 있는 자원입니다.'}</span>
+      <span>{reserveBlockedReason[status] || '예약 가능'}</span>
     </p>
   )
 }

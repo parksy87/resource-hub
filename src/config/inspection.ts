@@ -25,5 +25,5 @@ export const inspectionResultMeta: Record<
   NORMAL: { label: '이상 없음', tone: 'green', description: '자원 상태에 문제가 없습니다.' },
   MINOR: { label: '경미한 이상', tone: 'yellow', description: '사용에는 큰 지장이 없는 경미한 이상입니다.' },
   REPAIR: { label: '수리 필요', tone: 'red', description: '수리 후 다시 사용할 수 있습니다.' },
-  DISPOSAL_REVIEW: { label: '폐기 검토', tone: 'neutral', description: '향후 폐기 처리로 연결할 수 있습니다.' },
+  DISPOSAL_REVIEW: { label: '폐기 검토', tone: 'neutral', description: '폐기 검토 대상으로 분류된 상태입니다.' },
 }

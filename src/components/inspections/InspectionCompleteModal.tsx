@@ -30,7 +30,7 @@ export function InspectionCompleteModal({ inspection, onClose, onSuccess }: Insp
     const nextErrors: Record<string, string> = {}
     if (!inspectedDate) nextErrors.inspectedDate = '실제 점검일을 선택해주세요.'
     if (!result) nextErrors.result = '점검 결과를 선택해주세요.'
-    if (result && result !== 'NORMAL' && !issueDescription.trim()) nextErrors.issueDescription = '이상 내용을 입력해주세요.'
+    if (result && result !== 'NORMAL' && !issueDescription.trim()) nextErrors.issueDescription = '이상 내용을 입력해 주세요.'
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length > 0 || !result) return
 
@@ -45,7 +45,7 @@ export function InspectionCompleteModal({ inspection, onClose, onSuccess }: Insp
       })
       const linked = resolveLinkedResourceStatus('COMPLETED', result)
       const linkedLabel = linked.pendingDisposal
-        ? '폐기 검토는 향후 폐기 처리로 연결할 수 있습니다.'
+        ? '폐기 검토 대상으로 등록됩니다.'
         : linked.resourceStatus
           ? `자원 상태는 ${resourceStatusMeta[linked.resourceStatus].label}으로 연계됩니다.`
           : undefined

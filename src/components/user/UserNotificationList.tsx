@@ -192,10 +192,10 @@ export function UserNotificationList() {
         />
       )}
       {visibleStatus === 'success' && result && !result.hasAny && (
-        <EmptyState title="알림이 없습니다." description="새 알림이 도착하면 이 화면에서 확인할 수 있습니다." />
+        <EmptyState title="알림이 없습니다." />
       )}
       {visibleStatus === 'success' && result && result.hasAny && result.items.length === 0 && filter.status === 'unread' && !filter.keyword.trim() && filter.type === 'all' && (
-        <EmptyState title="읽지 않은 알림이 없습니다." description="새로운 알림이 오면 이 목록에 표시됩니다." />
+        <EmptyState title="읽지 않은 알림이 없습니다." />
       )}
       {visibleStatus === 'success' && result && result.hasAny && result.items.length === 0 && (filter.keyword.trim() || filter.type !== 'all' || (filter.status !== 'all' && filter.status !== 'unread')) && (
         <StateDisplay variant="search-empty" title="검색 조건에 맞는 알림이 없습니다." description="검색어나 필터를 바꿔 다시 확인해 주세요." />

@@ -393,7 +393,7 @@ async function readAvailability(query: ReservationAvailabilityQuery): Promise<Re
 
   }
 
-  return { status: 'available', message: '선택한 일정에 예약 가능한 자원입니다.' }
+  return { status: 'available', message: '예약 가능' }
 
 }
 

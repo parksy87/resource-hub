@@ -56,7 +56,7 @@ export default function InspectionCreatePage() {
       })
       navigate(ROUTES.admin.inspectionDetail(created.id))
     } catch {
-      addToast({ tone: 'error', title: parent ? '재점검을 등록하지 못했습니다.' : '점검을 등록하지 못했습니다.', description: '입력 내용과 점검 상태를 확인해주세요.' })
+      addToast({ tone: 'error', title: parent ? '재점검을 등록하지 못했습니다.' : '점검을 등록하지 못했습니다.', description: '입력 내용과 점검 상태를 확인해 주세요.' })
     } finally {
       setIsSubmitting(false)
     }

@@ -33,7 +33,7 @@ const summaryItems = [
   { key: 'activeRentals', label: '현재 대여 중', to: `${ROUTES.user.rentals}?status=rented` },
   { key: 'dueSoon', label: '반납 예정', to: `${ROUTES.user.rentals}?status=rented` },
   { key: 'overdueRentals', label: '연체 건수', to: `${ROUTES.user.rentals}?status=overdue` },
-  { key: 'unreadNotifications', label: '알림 미확인', to: `${ROUTES.user.notifications}?status=unread` },
+  { key: 'unreadNotifications', label: '읽지 않은 알림', to: `${ROUTES.user.notifications}?status=unread` },
 ] as const
 
 function isProfileSaved(state: unknown) {
@@ -119,10 +119,10 @@ export function MyPageView() {
       <header className="user-mypage-heading">
         <p>ACCOUNT</p>
         <h2>마이페이지</h2>
-        <p>회원 정보와 최근 자원 이용 현황을 확인합니다.</p>
+        <p>회원 정보와 이용 내역을 확인합니다.</p>
       </header>
 
-      {profileSaved && <p className="user-mypage-complete" role="status">회원정보를 저장했습니다.</p>}
+      {profileSaved && <p className="user-mypage-complete" role="status">회원 정보를 저장했습니다.</p>}
       {visibleStatus === 'loading' && <Loading label="마이페이지를 불러오는 중입니다" />}
       {visibleStatus === 'error' && (
         <ErrorState
@@ -138,7 +138,7 @@ export function MyPageView() {
             title="회원 정보"
             action={(
               <Link className="ui-button ui-button--primary ui-button--sm" to={ROUTES.user.mypageEdit}>
-                회원정보 수정
+                회원 정보 수정
               </Link>
             )}
           >
@@ -171,11 +171,10 @@ export function MyPageView() {
 
           <Card
             title="최근 예약"
-            description="최근 예약 5건입니다."
-            action={<Link to={ROUTES.user.reservationHistory}>전체보기</Link>}
+            action={<Link to={ROUTES.user.reservationHistory}>전체 보기</Link>}
           >
             {data.reservations.length === 0 ? (
-              <EmptyState compact title="최근 예약이 없습니다." description="자원을 예약하면 이곳에 표시됩니다." />
+              <EmptyState compact title="최근 예약이 없습니다." />
             ) : (
               <ul className="user-mypage-list">
                 {data.reservations.map((item) => {
@@ -203,11 +202,10 @@ export function MyPageView() {
 
           <Card
             title="최근 대여·반납"
-            description="최근 대여·반납 5건입니다."
-            action={<Link to={ROUTES.user.rentals}>전체보기</Link>}
+            action={<Link to={ROUTES.user.rentals}>전체 보기</Link>}
           >
             {data.rentals.length === 0 ? (
-              <EmptyState compact title="최근 대여·반납 내역이 없습니다." description="대여가 시작되면 이곳에 표시됩니다." />
+              <EmptyState compact title="최근 대여·반납 내역이 없습니다." />
             ) : (
               <ul className="user-mypage-list">
                 {data.rentals.map((item) => {
@@ -235,12 +233,11 @@ export function MyPageView() {
 
           <Card
             title="최근 알림"
-            description="최근 알림 5건입니다."
-            action={<Link to={ROUTES.user.notifications}>전체보기</Link>}
+            action={<Link to={ROUTES.user.notifications}>전체 보기</Link>}
           >
             {noticeError && <p className="user-mypage-alert" role="alert">{noticeError}</p>}
             {data.notifications.length === 0 ? (
-              <EmptyState compact title="최근 알림이 없습니다." description="새 알림이 도착하면 이곳에 표시됩니다." />
+              <EmptyState compact title="최근 알림이 없습니다." />
             ) : (
               <ul className="user-mypage-list">
                 {data.notifications.map((item) => {
@@ -270,11 +267,11 @@ export function MyPageView() {
                 variant="success"
                 compact
                 title="회원 탈퇴 요청이 접수되었습니다."
-                description="실제 계정 삭제와 이용 제한은 이후 단계에서 연결됩니다. 현재 화면의 이용 내역은 그대로 유지됩니다."
+                description="시연 환경에서는 탈퇴 요청 상태만 반영되며 이용 내역은 유지됩니다."
               />
             ) : (
               <div className="user-mypage-withdraw">
-                <p>탈퇴 후에는 자원 예약, 대여·반납, 알림을 이용하기 어렵습니다. 진행 중인 대여가 있다면 반납을 먼저 확인해 주세요.</p>
+                <p>탈퇴 후에는 자원 예약, 대여·반납, 알림을 이용할 수 없습니다. 진행 중인 대여가 있다면 반납을 먼저 확인해 주세요.</p>
                 <Button type="button" variant="danger" onClick={() => { setWithdrawError(''); setWithdrawOpen(true) }}>
                   회원 탈퇴
                 </Button>
@@ -307,7 +304,7 @@ export function MyPageView() {
             <li>대여 중인 자원은 반납 전까지 계정 이용이 제한될 수 있습니다.</li>
             <li>알림과 이용 내역 확인도 함께 제한됩니다.</li>
           </ul>
-          <p>현재 단계에서는 계정을 실제로 삭제하지 않고, 탈퇴 요청 완료 상태만 표시합니다.</p>
+          <p>시연 환경에서는 계정을 삭제하지 않고 탈퇴 요청 상태만 표시합니다.</p>
           {withdrawError && <p className="user-mypage-alert" role="alert">{withdrawError}</p>}
         </div>
       </Modal>

@@ -26,7 +26,7 @@ export function UserStatusModal({ user, onClose, onSuccess }: UserStatusModalPro
   const handleChange = async () => {
     if (!changed) return
     if (status === 'SUSPENDED' && !reason.trim()) {
-      setError('이용정지 사유를 입력해주세요.')
+      setError('이용정지 사유를 입력해 주세요.')
       return
     }
     setIsProcessing(true)
@@ -46,7 +46,7 @@ export function UserStatusModal({ user, onClose, onSuccess }: UserStatusModalPro
     <Modal
       isOpen
       onClose={onClose}
-      title="해당 사용자의 상태를 변경하시겠습니까?"
+      title="상태를 변경하시겠습니까?"
       description="확인하면 사용자 이용 상태가 즉시 변경되고 이력이 남습니다."
       size="sm"
       footer={

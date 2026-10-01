@@ -5,6 +5,7 @@ import {
   type User as FirebaseAuthUser,
 } from 'firebase/auth'
 import { doc, getDoc } from 'firebase/firestore'
+import { PORTFOLIO_ADMIN_DISPLAY_ID, resolveAdminFirebaseEmail } from '../config/portfolioAuth'
 import { auth, isFirebaseConfigured, requireAuth, requireDb } from '../lib/firebase'
 import type { AuthUser, FirebaseUserProfile } from '../types/auth'
 import { AuthServiceError } from '../types/auth'
@@ -87,11 +88,10 @@ async function toAuthUser(fbUser: FirebaseAuthUser, options?: { requireProfile?:
 /** Firebase Console에서 생성한 관리자 계정 — Firestore users 문서 없이 ADMIN 처리 */
 function toAdminAuthUser(fbUser: FirebaseAuthUser): AuthUser {
   const email = fbUser.email
-  const name = fbUser.displayName ?? (email ? email.split('@')[0] : '관리자')
   return {
     uid: fbUser.uid,
     email,
-    name,
+    name: PORTFOLIO_ADMIN_DISPLAY_ID,
     role: 'ADMIN',
   }
 }
@@ -106,7 +106,7 @@ export const authService = {
     return auth.currentUser
   },
 
-  async loginAsAdmin(email: string, password: string): Promise<AuthUser> {
+  async loginAsAdmin(loginIdOrEmail: string, password: string): Promise<AuthUser> {
     if (!isFirebaseConfigured) {
       throw new AuthServiceError(
         'AUTH_NOT_CONFIGURED',
@@ -114,13 +114,20 @@ export const authService = {
       )
     }
 
-    const trimmedEmail = email.trim()
-    if (!trimmedEmail || !password) {
-      throw new AuthServiceError('INVALID_CREDENTIALS', '이메일과 비밀번호를 입력해 주세요.')
+    if (!password) {
+      throw new AuthServiceError('INVALID_CREDENTIALS', '아이디와 비밀번호를 입력해 주세요.')
+    }
+
+    let firebaseEmail: string
+    try {
+      firebaseEmail = resolveAdminFirebaseEmail(loginIdOrEmail)
+    } catch (error) {
+      if (error instanceof AuthServiceError) throw error
+      throw mapFirebaseAuthError(error)
     }
 
     try {
-      const credential = await signInWithEmailAndPassword(requireAuth(), trimmedEmail, password)
+      const credential = await signInWithEmailAndPassword(requireAuth(), firebaseEmail, password)
       return toAdminAuthUser(credential.user)
     } catch (error) {
       if (error instanceof AuthServiceError) throw error

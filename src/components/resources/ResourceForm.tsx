@@ -48,8 +48,8 @@ export function ResourceForm({
 
   const validate = () => {
     const next: ResourceFormErrors = {}
-    if (!values.name.trim()) next.name = '자원명을 입력해주세요.'
-    if (!values.resourceCode.trim()) next.resourceCode = '자원 코드를 입력해주세요.'
+    if (!values.name.trim()) next.name = '자원명을 입력해 주세요.'
+    if (!values.resourceCode.trim()) next.resourceCode = '자원 코드를 입력해 주세요.'
     if (!values.categoryId) next.categoryId = '자원 분류를 선택해주세요.'
     if (!values.type) next.type = '자원 유형을 선택해주세요.'
     if (!values.location) next.location = '보관 위치를 선택해주세요.'
@@ -79,7 +79,7 @@ export function ResourceForm({
 
   return (
     <form className="resource-form" onSubmit={handleSubmit} noValidate>
-      <Card title="기본 정보" description="자원을 식별하고 운영하는 데 필요한 필수 정보입니다.">
+      <Card title="기본 정보">
         <div className="resource-form-grid">
           <Input
             label="자원명"
@@ -183,7 +183,7 @@ export function ResourceForm({
         </div>
       </Card>
 
-      <Card title="상세 정보" description="사용자가 자원을 이해하는 데 필요한 내용을 입력합니다.">
+      <Card title="상세 정보">
         <div className="resource-form-grid">
           <div className="resource-form-grid__wide">
             <Textarea
@@ -218,7 +218,6 @@ export function ResourceForm({
             if (file) setField('imageUrl', URL.createObjectURL(file))
           }}
         />
-        <p className="resource-form-upload-note">실제 파일 업로드는 API 연결 단계에서 처리됩니다.</p>
       </Card>
 
       <div className="resource-form-actions">

@@ -35,15 +35,15 @@ export function UserForm({ initialValues, isSubmitting, onSubmit, onCancel }: Us
 
   const validate = () => {
     const next: Partial<Record<keyof UserFormValues, string>> = {}
-    if (!values.name.trim()) next.name = '이름을 입력해주세요.'
-    if (!values.email.trim()) next.email = '이메일을 입력해주세요.'
-    else if (!isValidEmail(values.email)) next.email = '이메일 형식을 확인해주세요.'
-    if (!values.phone.trim()) next.phone = '전화번호를 입력해주세요.'
-    else if (!isValidPhone(values.phone)) next.phone = '010-0000-0000 형식으로 입력해주세요.'
+    if (!values.name.trim()) next.name = '이름을 입력해 주세요.'
+    if (!values.email.trim()) next.email = '이메일을 입력해 주세요.'
+    else if (!isValidEmail(values.email)) next.email = '이메일 형식을 확인해 주세요.'
+    if (!values.phone.trim()) next.phone = '전화번호를 입력해 주세요.'
+    else if (!isValidPhone(values.phone)) next.phone = '010-0000-0000 형식으로 입력해 주세요.'
     if (!values.role) next.role = '사용자 유형을 선택해주세요.'
     if (!values.status) next.status = '상태를 선택해주세요.'
     if (values.status === 'SUSPENDED' && initialValues.status !== 'SUSPENDED' && !values.statusReason.trim()) {
-      next.statusReason = '이용정지 사유를 입력해주세요.'
+      next.statusReason = '이용정지 사유를 입력해 주세요.'
     }
     setErrors(next)
     return Object.keys(next).length === 0

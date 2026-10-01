@@ -134,7 +134,7 @@ export function AdminSidebar({
           </Tooltip>
           <div className="admin-sidebar__environment">
             <span />
-            <div><strong>시스템 정상</strong><small>Demo environment</small></div>
+            <div><strong>시스템 정상</strong><small>데모</small></div>
           </div>
         </div>
 
